@@ -1,5 +1,6 @@
 {
   "name": "anime-list",
+  "homepage": "https://philian73.github.io/anime-list",
   "private": true,
   "version": "1.0.0",
   "author": "Nikolay Sulteev",
@@ -8,9 +9,11 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

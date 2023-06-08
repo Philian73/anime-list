@@ -16,6 +16,9 @@ export type AnimeType = {
   id: string
   title: string
   image: string
+  rating: number
+  votesCount: number
+  releaseDate: Date
 }
 
 export type AnimeListsType = {
@@ -38,20 +41,8 @@ const App = () => {
   ])
 
   const [animeLists, setAnimeLists] = useState<AnimeListsType>({
-    [animeListId_1]: [
-      {
-        id: v1(),
-        title: 'Тестовое аниме',
-        image: 'https://yummy-anime.ru/static/posters/medium/1636667140.webp',
-      },
-    ],
-    [animeListId_2]: [
-      {
-        id: v1(),
-        title: '2222',
-        image: 'https://yummy-anime.ru/static/posters/medium/1636667140.webp',
-      },
-    ],
+    [animeListId_1]: [],
+    [animeListId_2]: [],
     [animeListId_3]: [],
     [animeListId_4]: [],
     [animeListId_5]: [],

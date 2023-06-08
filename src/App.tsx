@@ -149,7 +149,18 @@ const App = () => {
         votesCount: 584,
       },
     ],
-    [animeListId_4]: [],
+    [animeListId_4]: [
+      {
+        id: v1(),
+        title: 'Пламенная бригада пожарных',
+        image: 'https://animego.org/upload/anime/images/5d8f871a5e757670575093.jpg',
+        type: 'TV',
+        episodes: 24,
+        rating: 9.1,
+        releaseDate: new Date(2019, 6, 6),
+        votesCount: 11796,
+      },
+    ],
     [animeListId_5]: [],
   })
 

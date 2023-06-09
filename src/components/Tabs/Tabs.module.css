@@ -1,9 +1,9 @@
-.buttonsContainer {
+.tabs {
   display: flex;
   background-color: #333;
 }
 
-.button {
+.tab {
   display: inline-block;
   text-transform: uppercase;
   cursor: pointer;
@@ -18,7 +18,7 @@
   transition: all 0.3s ease 0s;
 }
 
-.button:not(.active):hover {
+.tab:not(.active):hover {
   background-color: rgba(255, 255, 255, 0.21);
 }
 
@@ -26,19 +26,48 @@
   background-color: #ff6666;
 }
 
-.list {
-  list-style: initial;
-  font-size: 20px;
-  color: black;
+.container {
+  max-width: 941px;
 }
 
-.item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+/* Стили для таблицы */
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border-collapse: collapse;
 }
 
-.item img {
-  max-height: 32px;
-  max-width: 46px;
+/*!* Стили для заголовков таблицы *!*/
+.table thead th {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: left;
+  background-color: #ff6666;
+  color: #ffffff;
+}
+
+/*!* Стили для ячеек данных таблицы *!*/
+.table tbody td {
+  padding: 8px 16px;
+}
+
+/*!* Стили для изображений в таблице *!*/
+.table tbody td img {
+  max-width: 50px;
+  max-height: 70px;
+}
+
+.table tbody tr:not(:last-child) {
+  border-bottom: 1px solid #dddddd;
+}
+
+.table thead th:not(:nth-child(3)) {
+  width: 50px; /* Задайте желаемую фиксированную ширину */
+  text-align: center;
+}
+
+.table tbody td:not(:nth-child(3)) {
+  text-align: center;
 }

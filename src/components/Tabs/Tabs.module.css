@@ -40,12 +40,17 @@
 
 /*!* Стили для заголовков таблицы *!*/
 .table thead th {
+  cursor: pointer;
   padding: 8px 16px;
   font-size: 0.8rem;
   font-weight: bold;
   text-align: left;
   background-color: #ff6666;
   color: #ffffff;
+}
+
+.table thead th:hover {
+  text-decoration: underline;
 }
 
 /*!* Стили для ячеек данных таблицы *!*/
@@ -70,4 +75,16 @@
 
 .table tbody td:not(:nth-child(3)) {
   text-align: center;
+}
+
+.addItem {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 200px;
+}
+
+.addItem input,
+select {
+  border: 2px solid black;
 }

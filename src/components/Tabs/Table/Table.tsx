@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 
-import { AnimeType } from '../../../App.tsx'
+import { AnimeType } from '../../../types'
 import cls from '../Tabs.module.css'
 
 type SortByType = null | 'title' | 'rating' | 'episodes' | 'type'

@@ -1,31 +1,11 @@
-import './styles/App.css'
 import { useState } from 'react'
+
+import './styles/App.css'
 
 import { v1 } from 'uuid'
 
-import { Tabs } from './components/Tabs/Tabs.tsx'
-
-export type ViewType = 'Смотрю' | 'В планах' | 'Просмотрено' | 'Брошено' | 'Любимое'
-
-export type ListType = {
-  id: string
-  title: ViewType
-}
-
-export type AnimeType = {
-  id: string
-  title: string
-  image: string
-  type: 'TV' | 'OVA' | 'film'
-  episodes: number
-  rating: number
-  votesCount: number
-  releaseDate: Date
-}
-
-export type AnimeListsType = {
-  [key: string]: AnimeType[]
-}
+import { Tabs } from './components/Tabs/Tabs'
+import { AnimeInputModelType, AnimeListsType, ListType } from './types'
 
 const App = () => {
   const animeListId_1 = v1()
@@ -51,8 +31,7 @@ const App = () => {
         type: 'TV',
         episodes: 1064,
         rating: 9.9,
-        releaseDate: new Date(1999, 9, 20),
-        votesCount: 999123,
+        created_at: new Date(1999, 9, 20),
       },
     ],
     [animeListId_2]: [
@@ -63,8 +42,7 @@ const App = () => {
         type: 'TV',
         episodes: 13,
         rating: 9.5,
-        releaseDate: new Date(2023, 3, 1),
-        votesCount: 8961,
+        created_at: new Date(2023, 3, 1),
       },
       {
         id: v1(),
@@ -73,8 +51,7 @@ const App = () => {
         type: 'TV',
         episodes: 11,
         rating: 9.5,
-        releaseDate: new Date(2023, 3, 12),
-        votesCount: 10668,
+        created_at: new Date(2023, 3, 12),
       },
       {
         id: v1(),
@@ -83,8 +60,7 @@ const App = () => {
         type: 'TV',
         episodes: 13,
         rating: 9.3,
-        releaseDate: new Date(2023, 3, 1),
-        votesCount: 3134,
+        created_at: new Date(2023, 3, 1),
       },
     ],
     [animeListId_3]: [
@@ -95,8 +71,7 @@ const App = () => {
         type: 'TV',
         episodes: 13,
         rating: 8.8,
-        releaseDate: new Date(2013, 3, 5),
-        votesCount: 8862,
+        created_at: new Date(2013, 3, 5),
       },
       {
         id: v1(),
@@ -105,8 +80,7 @@ const App = () => {
         type: 'OVA',
         episodes: 1,
         rating: 8.7,
-        releaseDate: new Date(2013, 8, 19),
-        votesCount: 1813,
+        created_at: new Date(2013, 8, 19),
       },
       {
         id: v1(),
@@ -115,8 +89,7 @@ const App = () => {
         type: 'TV',
         episodes: 13,
         rating: 8.8,
-        releaseDate: new Date(2015, 3, 3),
-        votesCount: 7143,
+        created_at: new Date(2015, 3, 3),
       },
       {
         id: v1(),
@@ -125,8 +98,7 @@ const App = () => {
         type: 'OVA',
         episodes: 1,
         rating: 8.9,
-        releaseDate: new Date(2015, 9, 27),
-        votesCount: 1925,
+        created_at: new Date(2015, 9, 27),
       },
       {
         id: v1(),
@@ -135,8 +107,7 @@ const App = () => {
         type: 'TV',
         episodes: 12,
         rating: 9.1,
-        releaseDate: new Date(2020, 6, 10),
-        votesCount: 7776,
+        created_at: new Date(2020, 6, 10),
       },
       {
         id: v1(),
@@ -145,8 +116,7 @@ const App = () => {
         type: 'OVA',
         episodes: 1,
         rating: 8.7,
-        releaseDate: new Date(2023, 3, 27),
-        votesCount: 584,
+        created_at: new Date(2023, 3, 27),
       },
     ],
     [animeListId_4]: [
@@ -157,16 +127,29 @@ const App = () => {
         type: 'TV',
         episodes: 24,
         rating: 9.1,
-        releaseDate: new Date(2019, 6, 6),
-        votesCount: 11796,
+        created_at: new Date(2019, 6, 6),
       },
     ],
     [animeListId_5]: [],
   })
 
+  const addAnime = (listId: string, inputs: AnimeInputModelType) => {
+    setAnimeLists(prevAnimeLists => ({
+      ...prevAnimeLists,
+      [listId]: [
+        ...prevAnimeLists[listId],
+        {
+          id: v1(),
+          created_at: new Date(),
+          ...inputs,
+        },
+      ],
+    }))
+  }
+
   return (
     <>
-      <Tabs lists={lists} animeLists={animeLists} />
+      <Tabs lists={lists} animeLists={animeLists} addAnime={addAnime} />
     </>
   )
 }

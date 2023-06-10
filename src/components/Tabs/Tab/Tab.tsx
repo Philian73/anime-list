@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { ViewType } from '../../../App.tsx'
+import { ViewType } from '../../../types'
 import cls from '../Tabs.module.css'
 
 type PropsType = {

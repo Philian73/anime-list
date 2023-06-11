@@ -39,10 +39,10 @@ export const Tabs: FC<PropsType> = ({ lists, animeLists, addAnime }) => {
   const onNewAnimeValuesChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = event.currentTarget
 
-    setNewAnimeValues(prevAnime => ({
-      ...prevAnime,
+    setNewAnimeValues({
+      ...newAnimeValues,
       [name]: value,
-    }))
+    })
   }
 
   const addAnimeCallback = () => {

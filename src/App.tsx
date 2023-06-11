@@ -134,17 +134,17 @@ const App = () => {
   })
 
   const addAnime = (listId: string, inputs: AnimeInputModelType) => {
-    setAnimeLists(prevAnimeLists => ({
-      ...prevAnimeLists,
+    setAnimeLists({
+      ...animeLists,
       [listId]: [
-        ...prevAnimeLists[listId],
+        ...animeLists[listId],
         {
           id: v1(),
           created_at: new Date(),
           ...inputs,
         },
       ],
-    }))
+    })
   }
 
   return (

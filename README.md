@@ -14,7 +14,7 @@
 - [x] React
 - [x] TypeScript
 - [x] UUID
-- [ ] jest
+- [ ] vitest
 - [ ] redux
 - [ ] react-redux
 - [ ] redux-thunk
